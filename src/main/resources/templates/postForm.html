@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>a Simple Blog</title>
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    <!-- include summernote css/js -->
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.js"></script>
+
+</head>
+<body>
+<header>
+    <nav class="navbar navbar-light bg-light">
+        <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 ">Simple Blog</span>
+        </div>
+    </nav>
+</header>
+<section>
+
+    <div class="container" style="width: 55%; padding-bottom:20px;">
+
+        <nav aria-label="breadcrumb" style="margin-top: 30px">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item " aria-current="page"><a href="/posts">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">New Post</li>
+            </ol>
+        </nav>
+
+        <div style="margin-top: 50px;">
+
+            <th:block th:include="validation"></th:block>
+            <form method="post">
+
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="title" placeholder="Title">
+                </div>
+                <div class="mb-3">
+                    <input type="text" class="form-control" name="author" placeholder="Author">
+                </div>
+                <div class="mb-3">
+                    <textarea id="summernote" class="form-control" name="description"  rows="20"></textarea>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary"> Send news </button>
+                    <a href="/posts" class="btn btn-danger role" role="button">Cancel</a>
+                </div>
+
+            </form>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<script>
+      $('#summernote').summernote({
+        placeholder: 'Make sure fields are filled...',
+        tabsize: 2,
+        height: 500
+      });
+    </script>
+</body>
+</html>
